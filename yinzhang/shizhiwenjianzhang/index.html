@@ -10,7 +10,6 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<script src="../../js/jquery.js?v1"></script>
 <link rel="stylesheet" href="../../static/css/app.css?v1">
 <link rel="stylesheet" href="../../static/css/index.css?v1">
 <link rel="stylesheet" href="../../static/css/easyseal.css?v1">
@@ -123,8 +122,8 @@ html,body{overflow:auto!important;height:auto!important}
 .sidebar-right .settings-content{max-height:170px!important}
 }
 </style>
-<script src="../../static/js/jquery-ui.js?v1"></script>
-<script src="../../static/js/jquery-1.9.1.js?v1"></script>
+<script defer src="../../static/js/jquery-1.9.1.js?v1"></script>
+<script defer src="../../static/js/jquery-ui.js?v1"></script>
 </head>
 <body>
 <div class="wap" id="app" v-cloak>
@@ -307,14 +306,12 @@ document.addEventListener('DOMContentLoaded',function(){
 function filterSeals(){var q=document.getElementById('sealSearch').value.toLowerCase();document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=e.getAttribute('data-name').toLowerCase().indexOf(q)!==-1?'':'none'})}
 function filterCategory(c,btn){document.querySelectorAll('#categoryTabs .cat-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=(c==='all'||e.getAttribute('data-cat')===c)?'':'none'});document.getElementById('sealSearch').value=''}
 </script>
-<script src="../../static/js/vue.js"></script>
-<script src="../../static/js/axios.min.js"></script>
-<script src="../../static/js/index.js"></script>
-<script src="../../static/js/sealfont.js"></script>
-<script src="../../static/js/ku.js"></script>
-<script src="../../static/js/common.js?v13"></script>
+<script defer src="../../static/js/vue.js"></script>
+<script defer src="../../static/js/sealfont.js"></script>
+<script defer src="../../static/js/ku.js"></script>
+<script defer src="../../static/js/common.js?v13"></script>
 
 
-<script src="../../static/js/y35.js"></script>
+<script defer src="../../static/js/y35.js"></script>
 </body>
 </html>

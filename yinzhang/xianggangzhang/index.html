@@ -10,11 +10,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/css/app.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/css/index.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/css/easyseal.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/css/sealfont.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/css/premium.css">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/app.css?v1">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/index.css?v1">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/easyseal.css?v1">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/sealfont.css?v1">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/premium.css">
 <style>
 html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;font-family:"Inter","SF Pro Display",-apple-system,"Microsoft YaHei","PingFang SC",sans-serif}
 .top-bar .row1{display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;background:0 0!important;background-image:none!important}
@@ -122,15 +122,22 @@ html,body{overflow:auto!important;height:auto!important}
 .sidebar-right .settings-content{max-height:170px!important}
 }
 </style>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/js/jquery-1.9.1.js?v1"></script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/js/jquery-ui.js?v1"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-1.9.1.js?v1"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-ui.js?v1"></script>
 </head>
 <body>
+<div id="page-loader" style="display:flex;align-items:center;justify-content:center;height:100vh;width:100%;position:fixed;top:0;left:0;z-index:9999;background:#F2F2F7;font-family:-apple-system,sans-serif">
+<div style="text-align:center">
+<div style="width:40px;height:40px;border:3px solid #E5E5EA;border-top-color:#0071E3;border-radius:50%;animation:lds-spin 0.6s linear infinite;margin:0 auto 16px"></div>
+<div style="font-size:14px;color:#6E6E73;font-weight:500">????????</div>
+</div>
+</div>
+<style>@keyframes lds-spin{to{transform:rotate(360deg)}}</style>
 <div class="wap" id="app" v-cloak>
   <div class="">
     <header class="top-bar">
       <div class="row1">
-        <div class="col1"><div class="ico" onclick="window.history.go(-1);"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/return-ico.png" alt="" /></div></div>
+        <div class="col1"><div class="ico" onclick="window.history.go(-1);"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/return-ico.png" alt="" /></div></div>
         <div class="col2"><span>?????</span></div>
         <div class="col3"></div>
       </div>
@@ -141,42 +148,42 @@ html,body{overflow:auto!important;height:auto!important}
         <div class="sidebar-search"><svg style="position:absolute;left:24px;top:50%;transform:translateY(-50%);pointer-events:none" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#AEAEB2" stroke-width="1.5"/><path d="M11 11L14.5 14.5" stroke="#AEAEB2" stroke-width="1.5" stroke-linecap="round"/></svg><input type="text" class="search-input" placeholder="??." id="sealSearch" oninput="filterSeals()" /></div>
         <div class="sidebar-categories" id="categoryTabs"><button class="cat-btn active" onclick="filterCategory('all',this)">??</button><button class="cat-btn" onclick="filterCategory('circle',this)">???</button><button class="cat-btn" onclick="filterCategory('oval',this)">???</button><button class="cat-btn" onclick="filterCategory('special',this)">???</button><button class="cat-btn" onclick="filterCategory('shape',this)">????</button><button class="cat-btn" onclick="filterCategory('pro',this)">???</button></div>
         <div class="template-scroll"><div class="template-grid" id="templateGrid">
-          <div class="t-item" data-cat="circle" data-name="????"><a href="../../yinzhang/yuanxingyinzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic1.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="????"><a href="../../yinzhang/gongzhangyinzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic2.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/fengongsigongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic3.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/hetongzhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic4.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/yewuzhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic5.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="????"><a href="../../yinzhang/tuoyuanyinzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic6.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/fapiaozhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic7.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/baoguanzhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic8.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/shoufeizhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic9.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/xianjinshouqi/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic34.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="???"><a href="../../yinzhang/caiwuzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic35.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/farensizhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic10.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/lingxingzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic11.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/bianmingzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic12.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zhiyezhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic13.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zaojiazhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic14.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/renzhengzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic15.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/qifengzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic16.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zhiwenzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic17.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/yingwenzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic18.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/cangwenzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic19.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/xianggangzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic20.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/weiwenzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic21.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/tiaoxingzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic22.png" alt=""/><span>???</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijianxiaoyuanzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic23.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????2"><a href="../../yinzhang/zhijianxiaoyuanzhang2/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic24.png" alt=""/><span>?????2</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijiandayuanzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic36.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijianfangxingzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic25.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zuofeixiaoyuanzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic26.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zuofeifangxingzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic27.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/chuhuozhuanyongzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic28.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/shoukongwenjianzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic29.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????2"><a href="../../yinzhang/shoukongwenjianzhang2/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic30.png" alt=""/><span>?????2</span></a></div>
-          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/riqiyuanzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic31.png" alt=""/><span>????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/shizhiwenjianzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic32.png" alt=""/><span>?????</span></a></div>
-          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/jianyantuoyuanzhang/"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/pic33.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="????"><a href="../../yinzhang/yuanxingyinzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic1.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="????"><a href="../../yinzhang/gongzhangyinzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic2.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/fengongsigongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic3.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/hetongzhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic4.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="?????"><a href="../../yinzhang/yewuzhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic5.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="????"><a href="../../yinzhang/tuoyuanyinzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic6.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/fapiaozhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic7.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/baoguanzhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic8.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="?????"><a href="../../yinzhang/shoufeizhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic9.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/xianjinshouqi/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic34.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="???"><a href="../../yinzhang/caiwuzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic35.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/farensizhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic10.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/lingxingzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic11.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/bianmingzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic12.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zhiyezhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic13.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zaojiazhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic14.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/renzhengzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic15.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/qifengzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic16.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/zhiwenzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic17.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/yingwenzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic18.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/cangwenzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic19.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/xianggangzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic20.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="???"><a href="../../yinzhang/weiwenzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic21.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="???"><a href="../../yinzhang/tiaoxingzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic22.png" alt=""/><span>???</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijianxiaoyuanzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic23.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????2"><a href="../../yinzhang/zhijianxiaoyuanzhang2/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic24.png" alt=""/><span>?????2</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijiandayuanzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic36.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zhijianfangxingzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic25.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zuofeixiaoyuanzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic26.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/zuofeifangxingzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic27.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/chuhuozhuanyongzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic28.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/shoukongwenjianzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic29.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????2"><a href="../../yinzhang/shoukongwenjianzhang2/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic30.png" alt=""/><span>?????2</span></a></div>
+          <div class="t-item" data-cat="special" data-name="????"><a href="../../yinzhang/riqiyuanzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic31.png" alt=""/><span>????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/shizhiwenjianzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic32.png" alt=""/><span>?????</span></a></div>
+          <div class="t-item" data-cat="special" data-name="?????"><a href="../../yinzhang/jianyantuoyuanzhang/"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/pic33.png" alt=""/><span>?????</span></a></div>
         </div></div>
       </aside>
       <main class="main-preview">
@@ -277,7 +284,7 @@ html,body{overflow:auto!important;height:auto!important}
     </div>
     <footer class="zhizhang-bottom">
       <div class="row1">
-        <div class="col1"><a href="../../about/help.html" target="_blank" class="item"><div class="ico"><img src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/img/ico1.png" alt=""/></div><div class="txt">??</div></a></div>
+        <div class="col1"><a href="../../about/help.html" target="_blank" class="item"><div class="ico"><img loading="lazy" src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/img/ico1.png" alt=""/></div><div class="txt">??</div></a></div>
         <div class="col2"><div class="btn" onClick="downyz()">?????</div></div>
       </div>
     </footer>
@@ -306,12 +313,29 @@ document.addEventListener('DOMContentLoaded',function(){
 function filterSeals(){var q=document.getElementById('sealSearch').value.toLowerCase();document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=e.getAttribute('data-name').toLowerCase().indexOf(q)!==-1?'':'none'})}
 function filterCategory(c,btn){document.querySelectorAll('#categoryTabs .cat-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=(c==='all'||e.getAttribute('data-cat')===c)?'':'none'});document.getElementById('sealSearch').value=''}
 </script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/js/vue.js"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/vue.js"></script>
 <script defer src="../../static/js/sealfont.js"></script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/stamp/js/ku.js"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/ku.js"></script>
 <script defer src="../../static/js/common.js?v13"></script>
 
 
 <script defer src="../../static/js/y22.js"></script>
+
+<script>
+(function(){
+  var loader=document.getElementById('page-loader');
+  if(!loader)return;
+  var check=setInterval(function(){
+    var app=document.getElementById('app');
+    if(app&&!app.hasAttribute('v-cloak')){
+      loader.style.opacity='0';
+      loader.style.transition='opacity 0.3s';
+      setTimeout(function(){loader.style.display='none'},300);
+      clearInterval(check);
+    }
+  },100);
+  setTimeout(function(){clearInterval(check);loader.style.display='none'},15000);
+})();
+</script>
 </body>
 </html>

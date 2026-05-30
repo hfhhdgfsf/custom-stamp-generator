@@ -10,11 +10,11 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/app.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/index.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/easyseal.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/sealfont.css?v1">
-<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/premium.css">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/app.css?v=2">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/index.css?v=2">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/easyseal.css?v=2">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/sealfont.css?v=2">
+<link rel="stylesheet" href="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/css/premium.css?v=2">
 <style>
 html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;font-family:"Inter","SF Pro Display",-apple-system,"Microsoft YaHei","PingFang SC",sans-serif}
 .top-bar .row1{display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;background:0 0!important;background-image:none!important}
@@ -122,8 +122,8 @@ html,body{overflow:auto!important;height:auto!important}
 .sidebar-right .settings-content{max-height:170px!important}
 }
 </style>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-1.9.1.js?v1"></script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-ui.js?v1"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-1.9.1.js?v=2"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/jquery-ui.js?v=2"></script>
 </head>
 <body>
 <div id="page-loader" style="display:flex;align-items:center;justify-content:center;height:100vh;width:100%;position:fixed;top:0;left:0;z-index:9999;background:#F2F2F7;font-family:-apple-system,sans-serif">
@@ -313,13 +313,13 @@ document.addEventListener('DOMContentLoaded',function(){
 function filterSeals(){var q=document.getElementById('sealSearch').value.toLowerCase();document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=e.getAttribute('data-name').toLowerCase().indexOf(q)!==-1?'':'none'})}
 function filterCategory(c,btn){document.querySelectorAll('#categoryTabs .cat-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=(c==='all'||e.getAttribute('data-cat')===c)?'':'none'});document.getElementById('sealSearch').value=''}
 </script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/vue.js"></script>
-<script defer src="../../static/js/sealfont.js"></script>
-<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/ku.js"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/vue.js?v=2"></script>
+<script defer src="../../static/js/sealfont.js?v=2"></script>
+<script defer src="https://lixiang6.oss-cn-hangzhou.aliyuncs.com/js/ku.js?v=2"></script>
 <script defer src="../../static/js/common.js?v13"></script>
 
 
-<script defer src="../../static/js/y18.js"></script>
+<script defer src="../../static/js/y18.js?v=2"></script>
 
 <script>
 (function(){

@@ -86,7 +86,7 @@ img{max-width:100%;display:block;}
 
 
 /*登陆页面*/
-.dlbox { width:22rem; height: 100%; margin: 0 auto; background-image: url("../images/loginbg.jpg"); background-size: 100% auto; background-position: left bottom; background-repeat: no-repeat; }
+.dlbox { width:22rem; height: 100%; margin: 0 auto; background-image: none; background-size: 100% auto; background-position: left bottom; background-repeat: no-repeat; }
 .dlform { padding: 0 1.3rem; padding-top:3rem; }
 .dlform li { position:relative; font-size:1.5rem; margin-bottom:5px;}
 .dlform li input { width: 100%; height:1.5rem; font-size: 1rem; padding:1.5rem 0; padding-left: 0; -webkit-tap-highlight-color: transparent; letter-spacing: normal; border:none; border-bottom:1px solid #ECECEC }
@@ -109,7 +109,7 @@ a.weibo:after { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD
 
 /*会员中心首页*/
 .hybox { height: 100%; margin: 0 auto;}
-.profile { height: 7rem; background-image: url("pbg.jpg"); background-size: 100%; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; -moz-align-items: center; align-items: center; padding: 0 0.8rem;
+.profile { height: 7rem; background-image: none; background-size: 100%; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; -moz-align-items: center; align-items: center; padding: 0 0.8rem;
 }
 .profile .fl { -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; -moz-align-items: center; align-items: center; -webkit-box-pack: start; -ms-flex-pack: start; -webkit-justify-content: flex-start; -moz-justify-content: flex-start; justify-content: flex-start; padding: .88889rem 0;
 width: 15rem; }
@@ -196,7 +196,7 @@ color:#fff; border:1px solid #b4282d; background-color:#b4282d; border-radius:4p
 .payfs img { width: 100px; height: 38px; }
 .rbutton:hover { background-position: 0 -50px; }
 .payfs a.hover { border: 1px solid #d94a4a; }
-.payfs a.hover span { display: inline-block; width: 14px; height: 14px; background: url(j.png) no-repeat; position: absolute; right: 0; bottom: 0; }
+.payfs a.hover span { display: inline-block; width: 14px; height: 14px; background: none no-repeat; position: absolute; right: 0; bottom: 0; }
 .tcxzlist li span{ float:right;}
 .tcxzlist li {
     line-height: 36px;

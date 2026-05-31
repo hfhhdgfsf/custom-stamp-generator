@@ -5,8 +5,8 @@
 // AbrilFatface02.load();
 // const AbrilFatface03 = new FontFace('汉仪行楷简', 'url(https://static-o.oss-cn-shenzhen.aliyuncs.com/sukoutu/sealfont/sealfont02.ttf)');
 // AbrilFatface03.load();
-const AbrilFatface04 = new FontFace('汉仪长宋简', 'url(https://static-o.oss-cn-shenzhen.aliyuncs.com/sukoutu/sealfont/sealfont03.ttf)');
-AbrilFatface04.load();
+// const AbrilFatface04 = new FontFace('汉仪长宋简', 'url(https://static-o.oss-cn-shenzhen.aliyuncs.com/sukoutu/sealfont/sealfont03.ttf)');
+// AbrilFatface04.load();
 // const AbrilFatface05 = new FontFace('汉仪中宋简', 'url(https://static-o.oss-cn-shenzhen.aliyuncs.com/sukoutu/sealfont/sealfont04.ttf)');
 // AbrilFatface05.load();
 // const AbrilFatface06 = new FontFace('方正行楷简体', 'url(https://static-o.oss-cn-shenzhen.aliyuncs.com/sukoutu/sealfont/sealfont05.ttf)');

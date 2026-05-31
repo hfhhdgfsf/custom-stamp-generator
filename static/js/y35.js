@@ -7,9 +7,7 @@
                         {name: '宋体'},
                         {name: '仿宋'},
                         {name: '楷体'},
-                        {name: '黑体'},
-                        {name: '汉仪长宋简'},
-                    ],
+                        {name: '黑体'},                    ],
                     // 主文字
                     input01: 'XXXXXXXXXXXX',
                     fontFamily01: '楷体',
@@ -27,7 +25,7 @@
                     fontLeft02: 0,
                     // 中心2
                     input03: '2024-01-01',
-                    fontFamily03: '汉仪长宋简',
+                    fontFamily03: '宋体',
                     fontSize03: 22,
                     fontWeight03: 'bold',
                     fontTop03: 0,
@@ -218,13 +216,14 @@
                     context.font = this.fontWeight05 + ' ' + this.fontSize05*this.sealScale09 + 'px ' + this.fontFamily05
                     var companys = this.input05
                     var counts = companys.length;// 字数   
-                    var angles = -4 * Math.PI / ((5-this.fontGap05*0.4) * (counts - 1));// 字间角度 ----------11  0.4:0.05 [10.6:3.15]
+                    var angles = -4 * Math.PI / ((5-this.fontGap05*0.4) * (counts - 1));// 字间角度
+                    var baseAngles = -4 * Math.PI / (5 * (counts - 1));
                     var charss = companys.split("");
                     var cs;
                     for (var i = 0; i < counts; i++) {
                     	cs = charss[i];// 需要绘制的字符
                         if (i == 0){
-                            context.rotate((5.4+this.fontRotate05*0.05) * Math.PI / 6); // -------------------------3.1  0.4:0.05
+                            context.rotate((5.4) * Math.PI / 6 + 2*Math.PI/(5-this.fontGap05*0.4) - 2*Math.PI/5); // centered
                         }else{
                             context.rotate(angles);
                         }  
@@ -243,12 +242,13 @@
                     context.font = this.fontWeight01 + ' ' + this.fontSize01*this.sealScale09 + 'px ' + this.fontFamily01
                     var count = this.input01.length; // 字数
                     var angle = 4 * Math.PI / (3 * count + 19 - this.fontGap01);
+                    var baseAngle = 4 * Math.PI / (3 * count + 19);
                     var chars = this.input01.split("");
                     var c;
                     for (var i = 0; i < count; i++) {
                         c = chars[i]; // 需要绘制的字符   
                         if (i == 0)
-                            context.rotate((6.6 - 0.05*this.fontRotate01) * Math.PI / 6);
+                            context.rotate((6.6) * Math.PI / 6 - (count - 1) * (angle - baseAngle) / 2); // centered
                         else
                             context.rotate(angle);
                         context.save();

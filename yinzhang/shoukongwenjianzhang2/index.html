@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>受控文件章2在线生成印章工具_印章在线生成器_电子印章生成器</title>
+<title>受控文件章2在线生成器_文件管控印章变体_ISO文档管理工具</title>
 <meta name="keywords" content="免费印章生成，在线印章制作，在线印章生成器">
-<meta name="description" content="在线免费印章生成器，支持公司印章、圆形印章、椭圆印章等。生成的电子印章支持下载到本地。">
+<meta name="description" content="在线制作受控文件章2，支持更多信息层级显示，包括文件密级、保管期限、分发范围等。免费生成电子受控文件章，PNG透明背景导出，适配精细化文档管控系统。">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<script src="../../js/jquery.js?v1"></script>
-<link rel="stylesheet" href="../../static/css/app.css?v1">
-<link rel="stylesheet" href="../../static/css/index.css?v1">
-<link rel="stylesheet" href="../../static/css/easyseal.css?v1">
-<link rel="stylesheet" href="../../static/css/sealfont.css?v1">
-<link rel="stylesheet" href="../../static/css/premium.css">
+<link rel="stylesheet" href="../../static/css/app.css?v=2">
+<link rel="stylesheet" href="../../static/css/index.css?v=2">
+<link rel="stylesheet" href="../../css/easyseal.css?v=2">
+<link rel="stylesheet" href="../../css/sealfont.css?v=2">
+<link rel="stylesheet" href="../../css/premium.css?v=2">
 <style>
 html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;font-family:"Inter","SF Pro Display",-apple-system,"Microsoft YaHei","PingFang SC",sans-serif}
 .top-bar .row1{display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;background:0 0!important;background-image:none!important}
@@ -26,8 +25,8 @@ html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;font-family:
 .wap>div:first-of-type{display:flex!important;flex-direction:column!important;flex:1!important;min-height:0!important;overflow:hidden!important}
 .app-layout{display:flex!important;flex:1!important;flex-direction:row!important;min-height:0!important;overflow:hidden!important}
 .sidebar-left{width:250px!important;min-width:250px!important;max-width:250px!important;flex-shrink:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#fff}
-.sidebar-right{width:300px!important;min-width:300px!important;max-width:300px!important;flex-shrink:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#fff}
-.main-preview{flex:1!important;min-width:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#F2F2F7!important;overflow:hidden!important}
+.sidebar-right{width:380px!important;min-width:380px!important;max-width:380px!important;flex-shrink:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;background:#fff}
+.main-preview{flex:1!important;min-width:0!important;max-width:480px!important;margin:0 auto!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#F2F2F7!important;overflow:hidden!important}
 .preview-canvas-wrap{background:#fff;border-radius:14px;padding:40px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.04)}
 .top-bar{height:48px!important;flex-shrink:0!important;display:flex!important;align-items:center!important;background:#fbfbfd!important}
 .zhizhang-bottom{height:42px!important;flex-shrink:0!important;display:flex!important;align-items:center!important;background:#fff!important;border-top:1px solid #E5E5EA!important;padding:0 16px!important}
@@ -81,7 +80,7 @@ html,body{height:100%;width:100%;margin:0;padding:0;overflow:hidden;font-family:
 /* TABLET */
 @media(max-width:1024px){
 .sidebar-left{width:200px!important;min-width:200px!important;max-width:200px!important}
-.sidebar-right{width:260px!important;min-width:260px!important;max-width:260px!important}
+.sidebar-right{width:320px!important;min-width:320px!important;max-width:320px!important}
 .preview-canvas-wrap{padding:24px}
 .template-grid{grid-template-columns:repeat(2,1fr)}
 }
@@ -123,61 +122,66 @@ html,body{overflow:auto!important;height:auto!important}
 .sidebar-right .settings-content{max-height:170px!important}
 }
 </style>
-<script src="../../static/js/jquery-ui.js?v1"></script>
-<script src="../../static/js/jquery-1.9.1.js?v1"></script>
+<script defer src="../../static/js/jquery-1.9.1.js?v=2"></script>
+<script defer src="../../static/js/jquery-ui.js?v=2"></script>
 </head>
 <body>
+<div id="page-loader" style="display:flex;align-items:center;justify-content:center;height:100vh;width:100%;position:fixed;top:0;left:0;z-index:9999;background:#F2F2F7;font-family:-apple-system,sans-serif">
+<div style="text-align:center">
+<div style="width:40px;height:40px;border:3px solid #E5E5EA;border-top-color:#0071E3;border-radius:50%;animation:lds-spin 0.6s linear infinite;margin:0 auto 16px"></div>
+<div style="font-size:14px;color:#6E6E73;font-weight:500">印章生成器加载中</div>
+</div>
+</div>
+<style>@keyframes lds-spin{to{transform:rotate(360deg)}}</style>
 <div class="wap" id="app" v-cloak>
   <div class="">
     <header class="top-bar">
       <div class="row1">
-        <div class="col1"><div class="ico" onclick="window.history.go(-1);"><img src="../../img/return-ico.png" alt="" /></div></div>
+        <div class="col1"><div class="ico" onclick="window.history.go(-1);"><img loading="lazy" src="../../img/return-ico.png" alt="" /></div></div>
         <div class="col2"><span>印章生成器</span></div>
         <div class="col3"></div>
       </div>
     </header>
     <div class="app-layout">
       <aside class="sidebar-left">
-        <div class="sidebar-header"><h2 class="sidebar-title">模板库</h2><span class="sidebar-count">36</span></div>
+        <div class="sidebar-header"><h2 class="sidebar-title">模板库</h2><span class="sidebar-count">35</span></div>
         <div class="sidebar-search"><svg style="position:absolute;left:24px;top:50%;transform:translateY(-50%);pointer-events:none" width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#AEAEB2" stroke-width="1.5"/><path d="M11 11L14.5 14.5" stroke="#AEAEB2" stroke-width="1.5" stroke-linecap="round"/></svg><input type="text" class="search-input" placeholder="搜索…" id="sealSearch" oninput="filterSeals()" /></div>
         <div class="sidebar-categories" id="categoryTabs"><button class="cat-btn active" onclick="filterCategory('all',this)">全部</button><button class="cat-btn" onclick="filterCategory('circle',this)">圆形章</button><button class="cat-btn" onclick="filterCategory('oval',this)">椭圆章</button><button class="cat-btn" onclick="filterCategory('special',this)">专用章</button><button class="cat-btn" onclick="filterCategory('shape',this)">特殊形状</button><button class="cat-btn" onclick="filterCategory('pro',this)">专业章</button></div>
         <div class="template-scroll"><div class="template-grid" id="templateGrid">
-          <div class="t-item" data-cat="circle" data-name="圆形印章"><a href="../../yinzhang/yuanxingyinzhang/"><img src="../../img/pic1.png" alt=""/><span>圆形印章</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="公章印章"><a href="../../yinzhang/gongzhangyinzhang/"><img src="../../img/pic2.png" alt=""/><span>公章印章</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="分公司公章"><a href="../../yinzhang/fengongsigongzhang/"><img src="../../img/pic3.png" alt=""/><span>分公司公章</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="合同专用章"><a href="../../yinzhang/hetongzhuanyongzhang/"><img src="../../img/pic4.png" alt=""/><span>合同专用章</span></a></div>
-          <div class="t-item" data-cat="circle" data-name="业务专用章"><a href="../../yinzhang/yewuzhuanyongzhang/"><img src="../../img/pic5.png" alt=""/><span>业务专用章</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="椭圆印章"><a href="../../yinzhang/tuoyuanyinzhang/"><img src="../../img/pic6.png" alt=""/><span>椭圆印章</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="发票专用章"><a href="../../yinzhang/fapiaozhuanyongzhang/"><img src="../../img/pic7.png" alt=""/><span>发票专用章</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="报关专用章"><a href="../../yinzhang/baoguanzhuanyongzhang/"><img src="../../img/pic8.png" alt=""/><span>报关专用章</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="收费专用章"><a href="../../yinzhang/shoufeizhuanyongzhang/"><img src="../../img/pic9.png" alt=""/><span>收费专用章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="现金收讫"><a href="../../yinzhang/xianjinshouqi/"><img src="../../img/pic34.png" alt=""/><span>现金收讫</span></a></div>
-          <div class="t-item" data-cat="oval" data-name="财务章"><a href="../../yinzhang/caiwuzhang/"><img src="../../img/pic35.png" alt=""/><span>财务章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="法人私章"><a href="../../yinzhang/farensizhang/"><img src="../../img/pic10.png" alt=""/><span>法人私章</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="菱形章"><a href="../../yinzhang/lingxingzhang/"><img src="../../img/pic11.png" alt=""/><span>菱形章</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="扁名章"><a href="../../yinzhang/bianmingzhang/"><img src="../../img/pic12.png" alt=""/><span>扁名章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="执业章"><a href="../../yinzhang/zhiyezhang/"><img src="../../img/pic13.png" alt=""/><span>执业章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="造价章"><a href="../../yinzhang/zaojiazhang/"><img src="../../img/pic14.png" alt=""/><span>造价章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="认证章"><a href="../../yinzhang/renzhengzhang/"><img src="../../img/pic15.png" alt=""/><span>认证章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="骑缝章"><a href="../../yinzhang/qifengzhang/"><img src="../../img/pic16.png" alt=""/><span>骑缝章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="指纹章"><a href="../../yinzhang/zhiwenzhang/"><img src="../../img/pic17.png" alt=""/><span>指纹章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="英文章"><a href="../../yinzhang/yingwenzhang/"><img src="../../img/pic18.png" alt=""/><span>英文章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="藏文章"><a href="../../yinzhang/cangwenzhang/"><img src="../../img/pic19.png" alt=""/><span>藏文章</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="香港章"><a href="../../yinzhang/xianggangzhang/"><img src="../../img/pic20.png" alt=""/><span>香港章</span></a></div>
-          <div class="t-item" data-cat="pro" data-name="维文章"><a href="../../yinzhang/weiwenzhang/"><img src="../../img/pic21.png" alt=""/><span>维文章</span></a></div>
-          <div class="t-item" data-cat="shape" data-name="条形章"><a href="../../yinzhang/tiaoxingzhang/"><img src="../../img/pic22.png" alt=""/><span>条形章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="质检小圆章"><a href="../../yinzhang/zhijianxiaoyuanzhang/"><img src="../../img/pic23.png" alt=""/><span>质检小圆章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="质检小圆章2"><a href="../../yinzhang/zhijianxiaoyuanzhang2/"><img src="../../img/pic24.png" alt=""/><span>质检小圆章2</span></a></div>
-          <div class="t-item" data-cat="special" data-name="质检大圆章"><a href="../../yinzhang/zhijiandayuanzhang/"><img src="../../img/pic36.png" alt=""/><span>质检大圆章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="质检方形章"><a href="../../yinzhang/zhijianfangxingzhang/"><img src="../../img/pic25.png" alt=""/><span>质检方形章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="作废小圆章"><a href="../../yinzhang/zuofeixiaoyuanzhang/"><img src="../../img/pic26.png" alt=""/><span>作废小圆章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="作废方形章"><a href="../../yinzhang/zuofeifangxingzhang/"><img src="../../img/pic27.png" alt=""/><span>作废方形章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="出货专用章"><a href="../../yinzhang/chuhuozhuanyongzhang/"><img src="../../img/pic28.png" alt=""/><span>出货专用章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="受控文件章"><a href="../../yinzhang/shoukongwenjianzhang/"><img src="../../img/pic29.png" alt=""/><span>受控文件章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="受控文件章2"><a href="../../yinzhang/shoukongwenjianzhang2/"><img src="../../img/pic30.png" alt=""/><span>受控文件章2</span></a></div>
-          <div class="t-item" data-cat="special" data-name="日期圆章"><a href="../../yinzhang/riqiyuanzhang/"><img src="../../img/pic31.png" alt=""/><span>日期圆章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="试制文件章"><a href="../../yinzhang/shizhiwenjianzhang/"><img src="../../img/pic32.png" alt=""/><span>试制文件章</span></a></div>
-          <div class="t-item" data-cat="special" data-name="检验椭圆章"><a href="../../yinzhang/jianyantuoyuanzhang/"><img src="../../img/pic33.png" alt=""/><span>检验椭圆章</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="圆形印章"><a href="../../yinzhang/yuanxingyinzhang/"><img loading="lazy" src="../../img/pic1.png" alt=""/><span>圆形印章</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="公章印章"><a href="../../yinzhang/gongzhangyinzhang/"><img loading="lazy" src="../../img/pic2.png" alt=""/><span>公章印章</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="分公司公章"><a href="../../yinzhang/fengongsigongzhang/"><img loading="lazy" src="../../img/pic3.png" alt=""/><span>分公司公章</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="合同专用章"><a href="../../yinzhang/hetongzhuanyongzhang/"><img loading="lazy" src="../../img/pic4.png" alt=""/><span>合同专用章</span></a></div>
+          <div class="t-item" data-cat="circle" data-name="业务专用章"><a href="../../yinzhang/yewuzhuanyongzhang/"><img loading="lazy" src="../../img/pic5.png" alt=""/><span>业务专用章</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="椭圆印章"><a href="../../yinzhang/tuoyuanyinzhang/"><img loading="lazy" src="../../img/pic6.png" alt=""/><span>椭圆印章</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="发票专用章"><a href="../../yinzhang/fapiaozhuanyongzhang/"><img loading="lazy" src="../../img/pic7.png" alt=""/><span>发票专用章</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="报关专用章"><a href="../../yinzhang/baoguanzhuanyongzhang/"><img loading="lazy" src="../../img/pic8.png" alt=""/><span>报关专用章</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="收费专用章"><a href="../../yinzhang/shoufeizhuanyongzhang/"><img loading="lazy" src="../../img/pic9.png" alt=""/><span>收费专用章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="现金收讫"><a href="../../yinzhang/xianjinshouqi/"><img loading="lazy" src="../../img/pic34.png" alt=""/><span>现金收讫</span></a></div>
+          <div class="t-item" data-cat="oval" data-name="财务章"><a href="../../yinzhang/caiwuzhang/"><img loading="lazy" src="../../img/pic35.png" alt=""/><span>财务章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="法人私章"><a href="../../yinzhang/farensizhang/"><img loading="lazy" src="../../img/pic10.png" alt=""/><span>法人私章</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="菱形章"><a href="../../yinzhang/lingxingzhang/"><img loading="lazy" src="../../img/pic11.png" alt=""/><span>菱形章</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="扁名章"><a href="../../yinzhang/bianmingzhang/"><img loading="lazy" src="../../img/pic12.png" alt=""/><span>扁名章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="执业章"><a href="../../yinzhang/zhiyezhang/"><img loading="lazy" src="../../img/pic13.png" alt=""/><span>执业章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="造价章"><a href="../../yinzhang/zaojiazhang/"><img loading="lazy" src="../../img/pic14.png" alt=""/><span>造价章</span></a></div>          <div class="t-item" data-cat="pro" data-name="骑缝章"><a href="../../yinzhang/qifengzhang/"><img loading="lazy" src="../../img/pic16.png" alt=""/><span>骑缝章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="指纹章"><a href="../../yinzhang/zhiwenzhang/"><img loading="lazy" src="../../img/pic17.png" alt=""/><span>指纹章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="英文章"><a href="../../yinzhang/yingwenzhang/"><img loading="lazy" src="../../img/pic18.png" alt=""/><span>英文章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="藏文章"><a href="../../yinzhang/cangwenzhang/"><img loading="lazy" src="../../img/pic19.png" alt=""/><span>藏文章</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="香港章"><a href="../../yinzhang/xianggangzhang/"><img loading="lazy" src="../../img/pic20.png" alt=""/><span>香港章</span></a></div>
+          <div class="t-item" data-cat="pro" data-name="维文章"><a href="../../yinzhang/weiwenzhang/"><img loading="lazy" src="../../img/pic21.png" alt=""/><span>维文章</span></a></div>
+          <div class="t-item" data-cat="shape" data-name="条形章"><a href="../../yinzhang/tiaoxingzhang/"><img loading="lazy" src="../../img/pic22.png" alt=""/><span>条形章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="质检小圆章"><a href="../../yinzhang/zhijianxiaoyuanzhang/"><img loading="lazy" src="../../img/pic23.png" alt=""/><span>质检小圆章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="质检小圆章2"><a href="../../yinzhang/zhijianxiaoyuanzhang2/"><img loading="lazy" src="../../img/pic24.png" alt=""/><span>质检小圆章2</span></a></div>
+          <div class="t-item" data-cat="special" data-name="质检大圆章"><a href="../../yinzhang/zhijiandayuanzhang/"><img loading="lazy" src="../../img/pic36.png" alt=""/><span>质检大圆章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="质检方形章"><a href="../../yinzhang/zhijianfangxingzhang/"><img loading="lazy" src="../../img/pic25.png" alt=""/><span>质检方形章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="作废小圆章"><a href="../../yinzhang/zuofeixiaoyuanzhang/"><img loading="lazy" src="../../img/pic26.png" alt=""/><span>作废小圆章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="作废方形章"><a href="../../yinzhang/zuofeifangxingzhang/"><img loading="lazy" src="../../img/pic27.png" alt=""/><span>作废方形章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="出货专用章"><a href="../../yinzhang/chuhuozhuanyongzhang/"><img loading="lazy" src="../../img/pic28.png" alt=""/><span>出货专用章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="受控文件章"><a href="../../yinzhang/shoukongwenjianzhang/"><img loading="lazy" src="../../img/pic29.png" alt=""/><span>受控文件章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="受控文件章2"><a href="../../yinzhang/shoukongwenjianzhang2/"><img loading="lazy" src="../../img/pic30.png" alt=""/><span>受控文件章2</span></a></div>
+          <div class="t-item" data-cat="special" data-name="日期圆章"><a href="../../yinzhang/riqiyuanzhang/"><img loading="lazy" src="../../img/pic31.png" alt=""/><span>日期圆章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="试制文件章"><a href="../../yinzhang/shizhiwenjianzhang/"><img loading="lazy" src="../../img/pic32.png" alt=""/><span>试制文件章</span></a></div>
+          <div class="t-item" data-cat="special" data-name="检验椭圆章"><a href="../../yinzhang/jianyantuoyuanzhang/"><img loading="lazy" src="../../img/pic33.png" alt=""/><span>检验椭圆章</span></a></div>
         </div></div>
       </aside>
       <main class="main-preview">
@@ -278,8 +282,8 @@ html,body{overflow:auto!important;height:auto!important}
     </div>
     <footer class="zhizhang-bottom">
       <div class="row1">
-        <div class="col1"><a href="../../about/help.html" target="_blank" class="item"><div class="ico"><img src="../../img/ico1.png" alt=""/></div><div class="txt">帮助</div></a></div>
-        <div class="col2"><div class="btn" onClick="downyz()">保存到相册</div></div>
+        <div class="col1"><a href="javascript:;" class="item" onclick="openSeoPanel()" style="background:rgba(92,64,51,.06);padding:4px 12px;border-radius:6px;color:#5C4033;font-weight:600"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C4033" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="txt">了解更多</div></a></div>
+        <div class="col2"><div class="btn" onClick="openStampModal()">盖章</div></div>
       </div>
     </footer>
   </div>
@@ -307,14 +311,108 @@ document.addEventListener('DOMContentLoaded',function(){
 function filterSeals(){var q=document.getElementById('sealSearch').value.toLowerCase();document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=e.getAttribute('data-name').toLowerCase().indexOf(q)!==-1?'':'none'})}
 function filterCategory(c,btn){document.querySelectorAll('#categoryTabs .cat-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');document.querySelectorAll('#templateGrid .t-item').forEach(function(e){e.style.display=(c==='all'||e.getAttribute('data-cat')===c)?'':'none'});document.getElementById('sealSearch').value=''}
 </script>
-<script src="../../static/js/vue.js"></script>
-<script src="../../static/js/axios.min.js"></script>
-<script src="../../static/js/index.js"></script>
-<script src="../../static/js/sealfont.js"></script>
-<script src="../../static/js/ku.js"></script>
-<script src="../../static/js/common.js?v13"></script>
+<script defer src="../../static/js/vue.js?v=2"></script>
+<script defer src="../../static/js/sealfont.js?v=2"></script>
+<script defer src="../../static/js/ku.js?v=2"></script>
+<script defer src="../../static/js/common.js?v13"></script>
 
 
-<script src="../../static/js/y33.js"></script>
+<script defer src="../../static/js/y33.js?v=2"></script>
+<script defer src="../../static/js/stamp-doc.js?v=1"></script>
+
+<script>
+(function(){
+  var loader=document.getElementById('page-loader');
+  if(!loader)return;
+  var check=setInterval(function(){
+    var app=document.getElementById('app');
+    if(app&&!app.hasAttribute('v-cloak')){
+      loader.style.opacity='0';
+      loader.style.transition='opacity 0.3s';
+      setTimeout(function(){loader.style.display='none'},300);
+      clearInterval(check);
+    }
+  },100);
+  setTimeout(function(){clearInterval(check);loader.style.display='none'},15000);
+})();
+</script>
+<!-- SEO Panel -->
+<div id="seoPanel" class="seo-panel" style="display:none">
+  <div class="seo-backdrop" onclick="closeSeoPanel()"></div>
+  <div class="seo-dialog">
+    <div class="seo-header">
+      <span class="seo-title">受控文件章2 — 受控文件的变体格式</span>
+      <button class="seo-close" onclick="closeSeoPanel()">✕</button>
+    </div>
+    <div class="seo-body">
+      <details class="seo-block" open>
+        <summary class="seo-summary">📖 页面简介</summary>
+        <div class="seo-content">受控文件章2是受控文件章的变体版本，提供不同的文字布局和更多的信息显示区域。在线生成器为需要更详细管控信息的文件提供灵活的印章设计方案。</div>
+      </details>
+      <details class="seo-block">
+        <summary class="seo-summary">📚 什么是受控文件章2</summary>
+        <div class="seo-content">受控文件章2在标准版本的基础上增加了更多的文字层级和信息显示区域，适合需要显示文件密级、保管期限、分发范围等详细管控信息的场景。在线生成器为受控文件章2提供了更灵活的参数配置，支持多行文字排列和不同的信息布局方式。</div>
+      </details>
+      <details class="seo-block">
+        <summary class="seo-summary">💼 使用场景</summary>
+        <div class="seo-content">受控文件章2用于包含更多管控信息的重要文件，如保密级别的管理文件、有限分发的技术文件等。电子版适用于高级别文档管理系统的精细化文件管控。</div>
+      </details>
+      <details class="seo-block">
+        <summary class="seo-summary">❓ 常见问题</summary>
+        <div class="seo-content">      <details class="seo-item">
+        <summary class="seo-q">受控文件章2和标准版的区别？</summary>
+        <div class="seo-a">标准版适合一般的受控文件，信息简洁。章2版本支持更多信息层级，适合需要显示文件密级、保管期限等详细管控信息的场景。</div>
+      </details>
+      <details class="seo-item">
+        <summary class="seo-q">如何添加文件密级？</summary>
+        <div class="seo-a">在参数面板的中心文字区域填写文件密级（如公开、内部、机密、绝密等）。可以配合不同颜色来强化密级标识。</div>
+      </details>
+      <details class="seo-item">
+        <summary class="seo-q">受控文件的分发号是什么意思？</summary>
+        <div class="seo-a">分发号是受控文件副本的唯一编号，用于追踪每份文件的去向。如分发号001表示该副本发放给第一个持有人。</div>
+      </details>
+      <details class="seo-item">
+        <summary class="seo-q">受控文件章可以添加二维码吗？</summary>
+        <div class="seo-a">目前工具不支持二维码生成。建议将印章PNG导出后，通过二维码生成工具在文件上添加包含文件编号的二维码。</div>
+      </details>
+      <details class="seo-item">
+        <summary class="seo-q">受控文件到期后如何处理？</summary>
+        <div class="seo-a">受控文件到期后应加盖作废章或回收销毁。本工具同时提供作废章生成，可配合使用完成文件的全生命周期管理。</div>
+      </details>
+</div>
+      </details>
+    </div>
+  </div>
+</div>
+<style>
+.seo-panel{position:fixed;top:0;left:0;width:100%;height:100%;z-index:10001;display:flex;align-items:center;justify-content:center}
+.seo-backdrop{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.seo-dialog{position:relative;width:92vw;max-width:720px;max-height:85vh;background:#FDF8F0;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden}
+.seo-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(92,64,51,.1);flex-shrink:0}
+.seo-title{font-size:15px;font-weight:600;color:#2C2C2C}
+.seo-close{background:none;border:none;font-size:18px;color:#A89888;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.seo-close:hover{background:rgba(92,64,51,.08);color:#5C4033}
+.seo-body{flex:1;overflow-y:auto;padding:16px 20px 24px}
+.seo-block{margin-bottom:12px;border:1px solid rgba(92,64,51,.08);border-radius:10px;overflow:hidden;background:#FFFBF7}
+.seo-block[open]{background:#fff}
+.seo-summary{font-size:14px;font-weight:600;color:#2C2C2C;padding:12px 16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.seo-summary::-webkit-details-marker{display:none}
+.seo-summary:after{content:"▾";font-size:12px;color:#A89888;font-weight:400;transition:transform .2s}
+.seo-block[open]>.seo-summary:after{content:"▴"}
+.seo-content{padding:0 16px 14px;font-size:13px;color:#6B5B4F;line-height:1.8;font-family:"Inter","SF Pro Display",-apple-system,"Microsoft YaHei","PingFang SC",sans-serif}
+.seo-item{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(92,64,51,.06)}
+.seo-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.seo-q{font-size:13px;font-weight:600;color:#2C2C2C;cursor:pointer;list-style:none;padding:6px 0;display:flex;justify-content:space-between}
+.seo-q::-webkit-details-marker{display:none}
+.seo-q:after{content:"+";font-size:14px;color:#A89888}
+.seo-item[open]>.seo-q:after{content:"−"}
+.seo-a{font-size:12px;color:#6B5B4F;line-height:1.7;padding:4px 0 0}
+@media(max-width:768px){.seo-dialog{width:96vw;max-height:80vh;border-radius:12px}.seo-body{padding:12px 14px 20px}}
+</style>
+<script>
+function openSeoPanel(){document.getElementById("seoPanel").style.display="flex";document.body.style.overflow="hidden"}
+function closeSeoPanel(){document.getElementById("seoPanel").style.display="none";document.body.style.overflow=""}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSeoPanel()});
+</script>
 </body>
 </html>
